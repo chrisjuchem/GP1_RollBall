@@ -9,12 +9,12 @@ public class Teleporter : MonoBehaviour {
 	public int required;
 
 	bool on = false;
-	float offDropDist = 0.5f;
+	public float offDropDist = 0.5f;
 
 	float bobHght;
 
 	public void Start() {
-		transform.Translate (Vector3.down * offDropDist);
+		GetComponent<BobAndSpin> ().height -= offDropDist;
 		bobHght = GetComponent<BobAndSpin> ().bobHeight;
 		GetComponent<BobAndSpin> ().bobHeight = 0;
 	}
@@ -22,9 +22,8 @@ public class Teleporter : MonoBehaviour {
 	public void Update() {
 		if (!on && GameObject.FindWithTag ("UI").GetComponent<UI> ().curScore >= required) {
 			on = true;
-			transform.Translate (Vector3.up * offDropDist);
+			GetComponent<BobAndSpin> ().height += offDropDist;
 			GetComponent<BobAndSpin> ().bobHeight = bobHght;
-			Debug.Log ("on");
 		}
 	}
 

@@ -9,7 +9,7 @@ public class BobAndSpin : MonoBehaviour {
 
 	public float rotateSpeed = 1;
 
-	private float height;
+	public float height;
 
 	void Start () {
 		height = transform.position.y;

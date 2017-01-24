@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour {
 
@@ -8,6 +9,10 @@ public class Player : MonoBehaviour {
 
 	void FixedUpdate () {
 		Move ();
+
+		if (transform.position.y < -100) {
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		}
 	}
 
 	void Move() {
