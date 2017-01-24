@@ -16,8 +16,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.gameObject.CompareTag("Pickup")) {
+		if (other.gameObject.CompareTag ("Pickup")) {
 			other.gameObject.SetActive (false);
+		} else if (other.gameObject.CompareTag ("TP")) {
+			other.gameObject.GetComponent<Teleporter>().Teleport (this);
 		}
 	}
 }
