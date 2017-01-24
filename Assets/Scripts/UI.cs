@@ -6,7 +6,10 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour {
 
 	int maxScore;
-	int curScore;
+	public int curScore {
+		get;
+		private set;
+	}
 
 	// Use this for initialization
 	void Start () {
