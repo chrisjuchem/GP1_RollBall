@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=RFlh8pTf4DU&list=PLX2vGYjWbI0Q-s4_lX0h4i2zbZqlg4
 Notable changes:
 - Multiple play areas with color-coded teleporters to access them.
 - Non-player game objects bob up and down as well as spin.
-- Dynamically calculated score.
+- Dynamically calculated score and goal.
 - Tweaked size/rotaion values for objects in the level.
 - Automatic restart if all pickups are collected, or 
   if the player manages to fall off the level.
