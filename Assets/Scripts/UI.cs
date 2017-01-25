@@ -4,27 +4,35 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+//Script for score tacking and UI management
 public class UI : MonoBehaviour {
 
 	int maxScore;
 	public int curScore {
+		//dynamically calculate the score when needed
 		get { return maxScore - countPickups (); }
 	}
+
+	//timer for game reset after win
 	float timeSinceWin = 0;
 
 	public GameObject winText;
 
-	// Use this for initialization
+
 	void Start () {
 		winText.SetActive (false);
 
+		//count all the pickups we could possibly get
 		maxScore = countPickups ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		// Update the score counter
 		gameObject.GetComponent<Text> ().text = curScore.ToString () + " / " + maxScore.ToString ();
-		if (curScore >= 43) {
+
+		// Check if we've won and execute win behavior of so
+		if (curScore >= maxScore) {
 			winText.SetActive (true);
 			timeSinceWin += Time.deltaTime;
 			if (timeSinceWin > 5) {
@@ -33,6 +41,7 @@ public class UI : MonoBehaviour {
 		}
 	}
 
+	// counts the number of active pickups in the level
 	int countPickups () {
 		return GameObject.FindGameObjectsWithTag ("Pickup").Length;
 	}
